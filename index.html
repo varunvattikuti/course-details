@@ -112,7 +112,7 @@ let specializations = {
 let courseDetails = {};
 Object.keys(specializations).forEach(course => {
     specializations[course].forEach(spec => {
-        courseDetails[spec] = ${spec} is a specialization focused on advancing knowledge in this field. It provides extensive training and career opportunities in various industries.;
+        courseDetails[spec] = spec + " is a specialization focused on advancing knowledge in this field. It provides extensive training and career opportunities in various industries.";
     });
 });
 
@@ -143,13 +143,13 @@ function displaySpecializations() {
     let container = document.getElementById("specialization-options");
     container.innerHTML = "";
     specializations[course].forEach(spec => {
-        container.innerHTML += <button onclick="storeData('specialization', '${spec}'); nextStep(6)">${spec}</button>;
+        container.innerHTML += "<button onclick=\"storeData('specialization', '" + spec + "'); nextStep(6)\">" + spec + "</button>";
     });
 }
 
 function displayCourseDetails() {
     let specialization = localStorage.getItem('specialization');
-    document.getElementById("course-details").innerHTML = <h3>${specialization}</h3><p>${courseDetails[specialization]}</p>;
+    document.getElementById("course-details").innerHTML = "<h3>" + specialization + "</h3><p>" + courseDetails[specialization] + "</p>";
 }
 </script>
 
